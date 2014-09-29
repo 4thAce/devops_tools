@@ -1,0 +1,34 @@
+{
+    "engineyard": {
+        "environment": {
+            "instances": [
+                {
+                    "name": "ResqueAndRedis",
+                    "public_hostname": "ec2-23-22-12-137.compute-1.amazonaws.com",
+                    "components": [
+                        {
+                            "key": "ssmtp"
+                        },
+                        {
+                            "tags": [
+                                "product=cloud",
+                                "ey.domain=api.engineyard.com",
+                                "ey.server.id=368984",
+                                "ey.environment.id=83991",
+                                "sso_id=a3cd666b-2547-47b1-be87-7ca0618d330a"
+                            ],
+                            "key": "appfirst"
+                        },
+                        {
+                            "domain": "api.engineyard.com",
+                            "instance_id": 368984,
+                            "key": "appfirst_tags"
+                        }
+                    ],
+                    "role": "util",
+                    "id": "i-1511df3f"
+                }
+            ]
+        }
+    }
+}
