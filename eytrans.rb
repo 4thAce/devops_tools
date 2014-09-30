@@ -26,6 +26,7 @@ class EYTrans
       outputhash[count.to_s] = {
                             "name" => entry["name"], 
                             "hostname" => entry["public_hostname"], 
+                            "private_hostname" => entry["private_hostname"], 
                             "role" => entry["role"],
                             "id" => entry["id"]
                            }

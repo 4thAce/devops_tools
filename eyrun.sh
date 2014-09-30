@@ -6,6 +6,14 @@ if [ "$1" == "staging" ]
 then
   environment_name='STAGING'
   my_environment='ToutStaging'
+elif [ "$1" == "linkerproduction" ]
+then
+  environment_name='LINKERPRODUCTION'
+  my_environment='LinkerProduction'
+elif [ "$1" == "linkerstaging" ]
+then
+  environment_name='LINKERSTAGING'
+  my_environment='LinkerStaging'
 elif [ "$1" == "production" ]
 then
   environment_name='PRODUCTION'
