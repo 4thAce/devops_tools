@@ -1,0 +1,543 @@
+Loading application data from Engine Yard Cloud...
+sudo commands often need a tty to run correctly. Use -t option to spawn a tty.
+
+Connecting to app_master ec2-23-21-102-199.compute-1.amazonaws.com...
+{
+  "aws_secret_key": "****************************************************************************************************",
+  "db_slaves": [
+    "ip-10-166-23-214.ec2.internal"
+  ],
+  "ruby_version": "Ruby 1.8.7",
+  "backup_interval": 12,
+  "admin_ssh_key": "ssh-rsa ****************************************************************************************************",
+  "internal_ssh_public_key": "ssh-rsa **************************************************************************************************** \n",
+  "user_ssh_key": [
+    "ssh-rsa **************************************************************************************************** \n",
+    "ssh-rsa **************************************************************************************************** \n",
+    "ssh-rsa **************************************************************************************************** \n",
+    "ssh-rsa **************************************************************************************************** \n",
+    "ssh-rsa **************************************************************************************************** \n",
+  ],
+  "internal_ssh_private_key": "-----BEGIN RSA PRIVATE KEY-----\n**************************************************************************************************** \n",
+  "mailserver": "smtp.engineyard.com",
+  "utility_instances": [
+    {
+      "name": "ResqueAndRedis",
+      "hostname": "ip-10-11-27-183.ec2.internal"
+    },
+    {
+      "name": "Resque1",
+      "hostname": "domU-12-31-39-0B-34-54.compute-1.internal"
+    },
+    {
+      "name": "Cacher",
+      "hostname": "ip-10-125-79-172.ec2.internal"
+    }
+  ],
+  "instance_role": "app",
+  "crons": [
+
+  ],
+  "backup_window": 100,
+  "run_list": "recipe[ey-base]",
+  "alert_email": "tk@toutapp.com",
+  "gems_to_install": [
+
+  ],
+  "applications": {
+    "Tout": {
+      "auth": {
+        "active": false
+      },
+      "newrelic": false,
+      "https_bind_port": 443,
+      "migration_command": null,
+      "type": "rails",
+      "repository_name": "git@github.com:toutapp/tout.git",
+      "http_bind_port": 80,
+      "run_deploy": false,
+      "revision": "f78802af9b3a7242b75653a7f37d48384540d859",
+      "branch": "staging",
+      "run_migrations": false,
+      "deploy_action": "deploy",
+      "deploy_key": "-----BEGIN RSA PRIVATE KEY-----\n**************************************************************************************************** \n",
+      "services": [
+        {
+          "resource": "mongrel",
+          "mongrel_base_port": 5000,
+          "mongrel_mem_limit": 150,
+          "mongrel_instance_count": 3
+        },
+        {
+          "resource": "memcached",
+          "base_port": 11211,
+          "mem_limit": 128
+        }
+      ],
+      "recipes": [
+        "memcached",
+        "monit",
+        "nginx",
+        "unicorn"
+      ],
+      "vhosts": [
+        {
+          "name": "staging.toutapp.com",
+          "role": "ToutStaging"
+        },
+        {
+          "name": "staging.toutapp.com",
+          "chain": "-----BEGIN CERTIFICATE-----\n****************************************************************************************************",
+          "role": "ToutStaging",
+          "crt": "-----BEGIN CERTIFICATE-----\n****************************************************************************************************",
+          "key": "-----BEGIN RSA PRIVATE KEY-----\n**************************************************************************************************** \n",
+        }
+      ]
+    }
+  },
+  "members": [
+    "domU-12-31-39-0A-B0-91.compute-1.internal",
+    "ip-10-63-132-245.ec2.internal"
+  ],
+  "aws_secret_id": "****************************************************************************************************",
+  "environment": {
+    "name": "ToutStaging",
+    "stack": "nginx_unicorn",
+    "framework_env": "staging"
+  },
+  "users": [
+    {
+      "gid": "1000",
+      "username": "deploy",
+      "uid": "1000",
+      "comment": "",
+      "password": "***"
+    }
+  ],
+  "master_app_server": {
+    "private_dns_name": "ip-10-63-132-245.ec2.internal",
+    "public_ip": "ec2-23-21-102-199.compute-1.amazonaws.com"
+  },
+  "reporting_url": "https://cloud.engineyard.com/reporting/ef8a4790-69bd-44c5-8c02-6e07394a0e83",
+  "db_host": "ec2-54-166-132-198.compute-1.amazonaws.com",
+  "packages_to_install": [
+
+  ],
+  "haproxy": {
+    "username": "deploy",
+    "password": "***"
+  },
+  "engineyard": {
+    "this": "i-1511df3f",
+    "environment": {
+      "apps": [
+        {
+          "name": "Tout",
+          "newrelic": false,
+          "components": [
+            {
+              "collection": [
+                {
+                  "name": "New Relic",
+                  "config": {
+                    "vars": {
+                      "license_key": "5f0cabdea1ba7d1ec414e829598a7c1a6390a1e3",
+                      "api_key": "e74e2e71a7befafb920392ec427f8d03d3d03962390a1e3",
+                      "new_relic_account_id": "696376"
+                    },
+                    "label": "New Relic"
+                  }
+                }
+              ],
+              "key": "addons"
+            },
+            {
+              "key": "app_metadata"
+            }
+          ],
+          "database_name": "Tout",
+          "migration_command": null,
+          "type": "rails",
+          "repository_name": "git@github.com:toutapp/tout.git",
+          "run_deploy": false,
+          "revision": "f78802af9b3a7242b75653a7f37d48384540d859",
+          "bundled": null,
+          "branch": "staging",
+          "run_migrations": false,
+          "deploy_action": "deploy",
+          "deploy_key": "-----BEGIN RSA PRIVATE KEY-----\n**************************************************************************************************** \n",
+          "gems": [
+
+          ],
+          "vhosts": [
+            {
+              "ssl_cert": {
+                "certificate": "-----BEGIN CERTIFICATE-----\n****************************************************************************************************",
+                "certificate_chain": "-----BEGIN CERTIFICATE-----\n****************************************************************************************************",
+                "private_key": "-----BEGIN RSA PRIVATE KEY-----\n**************************************************************************************************** \n",
+              },
+              "domain_name": "staging.toutapp.com"
+            }
+          ],
+          "ebuilds": [
+
+          ]
+        }
+      ],
+      "ssh_keys": [
+        "ssh-rsa ****************************************************************************************************",
+        "ssh-rsa ****************************************************************************************************",
+        "ssh-rsa ****************************************************************************************************",
+        "ssh-rsa ****************************************************************************************************",
+        "ssh-rsa ****************************************************************************************************",
+      ],
+      "name": "ToutStaging",
+      "aws_secret_key": "****************************************************************************************************",
+      "instances": [
+        {
+          "name": null,
+          "public_hostname": "ec2-54-204-106-1.compute-1.amazonaws.com",
+          "components": [
+            {
+              "key": "ssmtp"
+            },
+            {
+              "tags": [
+                "product=cloud",
+                "ey.domain=api.engineyard.com",
+                "ey.server.id=368964",
+                "ey.environment.id=83991",
+                "sso_id=a3cd666b-2547-47b1-be87-7ca0618d330a"
+              ],
+              "key": "appfirst"
+            },
+            {
+              "domain": "api.engineyard.com",
+              "instance_id": 368964,
+              "key": "appfirst_tags"
+            }
+          ],
+          "stonith_config": {
+            "endpoint_uri": "https://cloud.engineyard.com/stonith",
+            "endpoint_token": "ef8a4790-69bd-44c5-8c02-6e07394a0e83",
+            "monitor_host": "ip-10-63-132-245.ec2.internal",
+            "endpoint_id": "i-1511df3f"
+          },
+          "role": "app",
+          "enabled": true,
+          "id": "i-1511df3f",
+          "private_hostname": "domU-12-31-39-0A-B0-91.compute-1.internal",
+          "reporting_url": "https://cloud.engineyard.com/reporting/ef8a4790-69bd-44c5-8c02-6e07394a0e83",
+          "instance_api_config": {
+            "token": "ef8a4790-69bd-44c5-8c02-6e07394a0e83",
+            "core_url": "https://api.engineyard.com/",
+            "instance_id": 368964,
+            "base_url": "https://cloud.engineyard.com/instance_api"
+          },
+          "awsm_token": "ef8a4790-69bd-44c5-8c02-6e07394a0e83"
+        },
+        {
+          "name": "ResqueAndRedis",
+          "public_hostname": "ec2-23-22-12-137.compute-1.amazonaws.com",
+          "components": [
+            {
+              "key": "ssmtp"
+            },
+            {
+              "tags": [
+                "product=cloud",
+                "ey.domain=api.engineyard.com",
+                "ey.server.id=368984",
+                "ey.environment.id=83991",
+                "sso_id=a3cd666b-2547-47b1-be87-7ca0618d330a"
+              ],
+              "key": "appfirst"
+            },
+            {
+              "domain": "api.engineyard.com",
+              "instance_id": 368984,
+              "key": "appfirst_tags"
+            }
+          ],
+          "stonith_config": {
+            "endpoint_uri": "https://cloud.engineyard.com/stonith",
+            "endpoint_token": "c8597398-cee0-494a-b574-3ca04501111a",
+            "monitor_host": "ip-10-63-132-245.ec2.internal",
+            "endpoint_id": "i-0a41a827"
+          },
+          "role": "util",
+          "enabled": true,
+          "id": "i-0a41a827",
+          "private_hostname": "ip-10-11-27-183.ec2.internal",
+          "reporting_url": "https://cloud.engineyard.com/reporting/c8597398-cee0-494a-b574-3ca04501111a",
+          "instance_api_config": {
+            "token": "c8597398-cee0-494a-b574-3ca04501111a",
+            "core_url": "https://api.engineyard.com/",
+            "instance_id": 368984,
+            "base_url": "https://cloud.engineyard.com/instance_api"
+          },
+          "awsm_token": "c8597398-cee0-494a-b574-3ca04501111a"
+        },
+        {
+          "name": "Resque1",
+          "public_hostname": "ec2-54-81-23-111.compute-1.amazonaws.com",
+          "components": [
+            {
+              "key": "ssmtp"
+            },
+            {
+              "tags": [
+                "product=cloud",
+                "ey.domain=api.engineyard.com",
+                "ey.server.id=369002",
+                "ey.environment.id=83991",
+                "sso_id=a3cd666b-2547-47b1-be87-7ca0618d330a"
+              ],
+              "key": "appfirst"
+            },
+            {
+              "domain": "api.engineyard.com",
+              "instance_id": 369002,
+              "key": "appfirst_tags"
+            }
+          ],
+          "stonith_config": {
+            "endpoint_uri": "https://cloud.engineyard.com/stonith",
+            "endpoint_token": "2e4d1e53-871c-4522-82e7-331871ff73c6",
+            "monitor_host": "ip-10-63-132-245.ec2.internal",
+            "endpoint_id": "i-d210def8"
+          },
+          "role": "util",
+          "enabled": true,
+          "id": "i-d210def8",
+          "private_hostname": "domU-12-31-39-0B-34-54.compute-1.internal",
+          "reporting_url": "https://cloud.engineyard.com/reporting/2e4d1e53-871c-4522-82e7-331871ff73c6",
+          "instance_api_config": {
+            "token": "2e4d1e53-871c-4522-82e7-331871ff73c6",
+            "core_url": "https://api.engineyard.com/",
+            "instance_id": 369002,
+            "base_url": "https://cloud.engineyard.com/instance_api"
+          },
+          "awsm_token": "2e4d1e53-871c-4522-82e7-331871ff73c6"
+        },
+        {
+          "name": null,
+          "public_hostname": "ec2-23-21-102-199.compute-1.amazonaws.com",
+          "components": [
+            {
+              "key": "ssmtp"
+            },
+            {
+              "tags": [
+                "product=cloud",
+                "ey.domain=api.engineyard.com",
+                "ey.server.id=369024",
+                "ey.environment.id=83991",
+                "sso_id=a3cd666b-2547-47b1-be87-7ca0618d330a"
+              ],
+              "key": "appfirst"
+            },
+            {
+              "domain": "api.engineyard.com",
+              "instance_id": 369024,
+              "key": "appfirst_tags"
+            }
+          ],
+          "stonith_config": {
+            "endpoint_uri": "https://cloud.engineyard.com/stonith",
+            "endpoint_token": "7c6e9610-5b6f-4836-bd96-47eb6e17a265",
+            "monitor_host": "ip-10-63-132-245.ec2.internal",
+            "endpoint_id": "i-3e4ca513"
+          },
+          "role": "app_master",
+          "enabled": true,
+          "id": "i-3e4ca513",
+          "private_hostname": "ip-10-63-132-245.ec2.internal",
+          "reporting_url": "https://cloud.engineyard.com/reporting/7c6e9610-5b6f-4836-bd96-47eb6e17a265",
+          "instance_api_config": {
+            "token": "7c6e9610-5b6f-4836-bd96-47eb6e17a265",
+            "core_url": "https://api.engineyard.com/",
+            "instance_id": 369024,
+            "base_url": "https://cloud.engineyard.com/instance_api"
+          },
+          "awsm_token": "7c6e9610-5b6f-4836-bd96-47eb6e17a265"
+        },
+        {
+          "name": "Cacher",
+          "public_hostname": "ec2-54-198-215-4.compute-1.amazonaws.com",
+          "components": [
+            {
+              "key": "ssmtp"
+            },
+            {
+              "tags": [
+                "product=cloud",
+                "ey.domain=api.engineyard.com",
+                "ey.server.id=370320",
+                "ey.environment.id=83991",
+                "sso_id=a3cd666b-2547-47b1-be87-7ca0618d330a"
+              ],
+              "key": "appfirst"
+            },
+            {
+              "domain": "api.engineyard.com",
+              "instance_id": 370320,
+              "key": "appfirst_tags"
+            }
+          ],
+          "stonith_config": {
+            "endpoint_uri": "https://cloud.engineyard.com/stonith",
+            "endpoint_token": "421ef627-ada0-440b-ab24-4042ee3b883f",
+            "monitor_host": "ip-10-63-132-245.ec2.internal",
+            "endpoint_id": "i-d65aef87"
+          },
+          "role": "util",
+          "enabled": true,
+          "id": "i-d65aef87",
+          "private_hostname": "ip-10-125-79-172.ec2.internal",
+          "reporting_url": "https://cloud.engineyard.com/reporting/421ef627-ada0-440b-ab24-4042ee3b883f",
+          "instance_api_config": {
+            "token": "421ef627-ada0-440b-ab24-4042ee3b883f",
+            "core_url": "https://api.engineyard.com/",
+            "instance_id": 370320,
+            "base_url": "https://cloud.engineyard.com/instance_api"
+          },
+          "awsm_token": "421ef627-ada0-440b-ab24-4042ee3b883f"
+        },
+        {
+          "name": "mysql_55",
+          "public_hostname": "ec2-54-166-132-198.compute-1.amazonaws.com",
+          "components": [
+            {
+              "key": "ssmtp"
+            },
+            {
+              "tags": [
+                "product=cloud",
+                "ey.domain=api.engineyard.com",
+                "ey.server.id=371457",
+                "ey.environment.id=83991",
+                "sso_id=a3cd666b-2547-47b1-be87-7ca0618d330a"
+              ],
+              "key": "appfirst"
+            },
+            {
+              "domain": "api.engineyard.com",
+              "instance_id": 371457,
+              "key": "appfirst_tags"
+            }
+          ],
+          "stonith_config": {
+            "endpoint_uri": "https://cloud.engineyard.com/stonith",
+            "endpoint_token": "5f94f73f-8e63-4ee1-a9b4-dae397b4d0ae",
+            "monitor_host": "ip-10-63-132-245.ec2.internal",
+            "endpoint_id": "i-6ba88584"
+          },
+          "role": "db_master",
+          "enabled": true,
+          "id": "i-6ba88584",
+          "private_hostname": "ip-10-157-6-169.ec2.internal",
+          "reporting_url": "https://cloud.engineyard.com/reporting/5f94f73f-8e63-4ee1-a9b4-dae397b4d0ae",
+          "instance_api_config": {
+            "token": "5f94f73f-8e63-4ee1-a9b4-dae397b4d0ae",
+            "core_url": "https://api.engineyard.com/",
+            "instance_id": 371457,
+            "base_url": "https://cloud.engineyard.com/instance_api"
+          },
+          "awsm_token": "5f94f73f-8e63-4ee1-a9b4-dae397b4d0ae"
+        },
+        {
+          "name": "new",
+          "public_hostname": "ec2-54-234-195-11.compute-1.amazonaws.com",
+          "components": [
+            {
+              "key": "ssmtp"
+            },
+            {
+              "tags": [
+                "product=cloud",
+                "ey.domain=api.engineyard.com",
+                "ey.server.id=372121",
+                "ey.environment.id=83991",
+                "sso_id=a3cd666b-2547-47b1-be87-7ca0618d330a"
+              ],
+              "key": "appfirst"
+            },
+            {
+              "domain": "api.engineyard.com",
+              "instance_id": 372121,
+              "key": "appfirst_tags"
+            }
+          ],
+          "stonith_config": {
+            "endpoint_uri": "https://cloud.engineyard.com/stonith",
+            "endpoint_token": "f7bb0721-3d35-43e0-8bb7-38f61456a7ea",
+            "monitor_host": "ip-10-63-132-245.ec2.internal",
+            "endpoint_id": "i-9b9441b6"
+          },
+          "role": "db_slave",
+          "enabled": true,
+          "id": "i-9b9441b6",
+          "private_hostname": "ip-10-166-23-214.ec2.internal",
+          "reporting_url": "https://cloud.engineyard.com/reporting/f7bb0721-3d35-43e0-8bb7-38f61456a7ea",
+          "instance_api_config": {
+            "token": "f7bb0721-3d35-43e0-8bb7-38f61456a7ea",
+            "core_url": "https://api.engineyard.com/",
+            "instance_id": 372121,
+            "base_url": "https://cloud.engineyard.com/instance_api"
+          },
+          "awsm_token": "f7bb0721-3d35-43e0-8bb7-38f61456a7ea"
+        }
+      ],
+      "framework_env": "staging",
+      "ruby_version": null,
+      "stonith_endpoint": "https://cloud.engineyard.com/stonith",
+      "region": "us-east-1",
+      "ssh_username": "deploy",
+      "internal_ssh_public_key": "ssh-rsa **************************************************************************************************** \n",
+      "admin_ssh_key": "ssh-rsa **************************************************************************************************** ",
+      "backup_interval": 12,
+      "internal_ssh_private_key": "-----BEGIN RSA PRIVATE KEY-----\n**************************************************************************************************** \n",
+      "components": [
+        {
+          "key": "ruby_187"
+        },
+        {
+          "version": "1.5.2",
+          "key": "rubygems"
+        },
+        {
+          "value": true,
+          "key": "lock_db_version"
+        },
+        {
+          "value": null,
+          "key": "ext4"
+        },
+        {
+          "key": "environment_metadata"
+        },
+        {
+          "clusters": [
+
+          ],
+          "key": "metadata"
+        }
+      ],
+      "mailserver": "smtp.engineyard.com",
+      "crons": [
+
+      ],
+      "stats_password": "***",
+      "stack_name": "nginx_unicorn",
+      "backup_window": 100,
+      "backup_bucket": "ey-backup-79d3c5b11a46",
+      "db_stack_name": "mysql5_5",
+      "ssh_password": "***",
+      "alert_email": "tk@toutapp.com",
+      "monitoring": "monit",
+      "newrelic_key": null,
+      "aws_secret_id": "****************************************************************************************************"
+    }
+  }
+}
