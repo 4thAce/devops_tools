@@ -1,4 +1,6 @@
 Some tooling to help manage Toutapp infrastructure
 
-eytrans -- Engine Yard on AWS server list
-awstrans -- Standalone AWS servers
+* eytrans -- Class to generate Engine Yard on AWS server list
+* eyrun.sh -- Convenience script to target Production and Staging environments
+* ec2info -- Class to generate list of standalone AWS servers
+* ec2run.sh - Convenience script to pretty-print the AWS list
