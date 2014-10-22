@@ -17,6 +17,8 @@ class EC2Info
          outputhash[count.to_s] = {
                                 "fqdn" => resentry["Instances"][0]["PublicDnsName"],
                                 "PublicIP" => resentry["Instances"][0]["PublicIpAddress"],
+                                "PrivateIP" => resentry["Instances"][0]["PrivateIpAddress"],
+                                "PrivateDnsName" => resentry["Instances"][0]["PrivateDnsName"],
                                 "InstanceId" => resentry["Instances"][0]["InstanceId"],
                                 "Tags" => tag.join(', ')
                                   }
