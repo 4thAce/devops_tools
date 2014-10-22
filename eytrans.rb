@@ -40,7 +40,8 @@ class EYTrans
   end
 
   def self.live(environment,pretty=false)
-    if (environment == "ToutStaging") or (environment == "ToutProduction") or (environment == "Linker") or (environment == "LinkerStaging") or (environment == "LinkerProduction") then
+    if (environment == "ToutStaging") or (environment == "ToutProduction") or (environment == "Linker") or (environment == "LinkerStaging") or (environment == "LinkerProduction") 
+      or (environment == "ToutImagerProduction") then
       stream = `/usr/local/bin/ey ssh 'sudo cat /etc/chef/dna.json' -e "#{environment}" `
       return self.serverFromString(stream,pretty)
     else
