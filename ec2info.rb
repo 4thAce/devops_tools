@@ -38,7 +38,7 @@ class EC2Info
   end
 
   def self.live(pretty=false)
-      stream = `/usr/local/bin/aws ec2 describe-instances`
+      stream = `aws ec2 describe-instances`
       return self.serverFromString(stream,pretty)
   end
 
