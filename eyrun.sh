@@ -14,7 +14,7 @@ elif [ "$1" == "linkerstaging" ]
 then
   environment_name='LINKERSTAGING'
   my_environment='LinkerStaging'
-elif [ "$1" == "imager"]
+elif [ "$1" == "imager" ]
 then
   environment_name='ToutImagerProduction'
   my_environment='ToutImagerProduction'
