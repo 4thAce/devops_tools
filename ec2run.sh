@@ -1,2 +1,4 @@
 #!/bin/bash
-ruby -r./ec2info.rb -e "puts EC2Info.live(true)"
+BASEDIR=$(dirname $0)
+export RUBYLIB=$BASEDIR
+ruby -rec2info.rb -e "puts EC2Info.live(true)"

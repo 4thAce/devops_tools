@@ -23,4 +23,6 @@ then
   environment_name='PRODUCTION'
   my_environment='ToutProduction'
 fi
-ruby -r./eytrans -e "puts EYTrans.live('$my_environment' ,true)"
+BASEDIR=$(dirname $0)
+export RUBYLIB=$BASEDIR
+ruby -reytrans -e "puts EYTrans.live('$my_environment' ,true)"
