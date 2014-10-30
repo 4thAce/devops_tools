@@ -20,7 +20,8 @@ class EC2Info
                                 "PrivateIP" => resentry["Instances"][0]["PrivateIpAddress"],
                                 "PrivateDnsName" => resentry["Instances"][0]["PrivateDnsName"],
                                 "InstanceId" => resentry["Instances"][0]["InstanceId"],
-                                "Tags" => tag.join(', ')
+                                "Tags" => tag.join(', '),
+                                "InstanceType" => resentry["Instances"][0]["InstanceType"]
                                   }
          count += 1
     end
