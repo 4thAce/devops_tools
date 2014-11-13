@@ -29,11 +29,12 @@ else
 		pieces = line.split(':')
 		if pieces[0] == "Variable_name" then
 			keyvalue[0]='"',"rds-#{pieces[1].lstrip}",'":'
+			output.push(keyvalue[0])
 		elsif /Value/.match(pieces[0]) then
-			keyvalue[1]='"',"#{pieces[1].lstrip}",'",'
+			keyvalue[1]='"',"#{pieces[1].lstrip}",'"'
+    		pipe.puts("{#{keyvalue}}")
+    		output.push(keyvalue[1],",")
     	end
-    	pipe.puts("{#{keyvalue}}")
-    	output.push(keyvalue.join(''),",")
 	end
 	# Remove extra comma
 	output[-1].chop!
