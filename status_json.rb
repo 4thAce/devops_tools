@@ -17,7 +17,11 @@ lines.each do |line|
     	    output.push(keyvalue[0])
 		elsif /Value/.match(pieces[0]) then
 			keyvalue[1]="#{pieces[1].lstrip}"
-			pipe.puts("{#{keyvalue}}")
+			if keyvalue.length<1 then
+				pipe.puts('""')
+			else
+			    pipe.puts("{#{keyvalue}}")
+            end
 			output.push(keyvalue[1],",")
     	end
 end
