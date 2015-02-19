@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 require 'fileutils'
 #lines = `mysql -h ec2-54-81-85-214.compute-1.amazonaws.com -u root -e "SHOW GLOBAL STATUS\\G"`.to_a
-lines = `mysql -h ec2-54-205-251-134.compute-1.amazonaws.com -u root -e "SHOW GLOBAL STATUS\\G"`.to_a
+lines = `mysql -h ec2-107-22-132-132.compute-1.amazonaws.com -u root -e "SHOW GLOBAL STATUS\\G"`.to_a
 t=Time.now
 filename="/home/deploy/dbstat/db.#{t.strftime('%Y-%m-%d%H:%M:%S')}.json"
 pipe=open("/var/tmp/logrelay2","w+")   # Nonblocking
