@@ -8,8 +8,10 @@ Some tooling to help manage Toutapp infrastructure
 * linkerreplication.sh - Monitor sync between linker master and slave
 * replicationstatus.sh - Dump core replication sttaus to a file
 * status_json.rb - Put mysql SHOW GLOBAL STATUS to a json file
+* killstalejobs - Template for killing stuck workers
+* failedrestartcheck.sh - See who failed to restart their resques
 
 = Prerequisites
 
-awscli (install this using the python-pip package)
-engineyard (install this as a local gem)
+* awscli (install this using the python-pip package)
+* engineyard (install this as a local gem and set up authentication)
