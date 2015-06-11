@@ -7,23 +7,25 @@ class EC2Info
     structure = JSON.parse(inputstring) or raise "Badly formed JSON"
     outputhash = Hash.new
     count = 0
-    structure["Reservations"].each do |resentry|      
-         tag = Array.new
+    structure["Reservations"].each do |resentry|
          if resentry.has_key?("Instances") && resentry["Instances"][0].has_key?("Tags") then
-           resentry["Instances"][0]["Tags"].each do |sometag|
-             tag.push(sometag["Value"])
+           resentry["Instances"].each do |aninstance|
+             tag = Array.new
+             aninstance["Tags"].each do |sometag|
+               tag.push(sometag["Value"])
+               outputhash[count.to_s] = {
+                                    "fqdn" => aninstance["PublicDnsName"],
+                                    "PublicIP" => aninstance["PublicIpAddress"],
+                                    "PrivateIP" => aninstance["PrivateIpAddress"],
+                                    "PrivateDnsName" => aninstance["PrivateDnsName"],
+                                    "InstanceId" => aninstance["InstanceId"],
+                                    "Tags" => tag.join(', '),
+                                    "InstanceType" => aninstance["InstanceType"]
+                                      }
+               count += 1
+             end
            end
          end
-         outputhash[count.to_s] = {
-                                "fqdn" => resentry["Instances"][0]["PublicDnsName"],
-                                "PublicIP" => resentry["Instances"][0]["PublicIpAddress"],
-                                "PrivateIP" => resentry["Instances"][0]["PrivateIpAddress"],
-                                "PrivateDnsName" => resentry["Instances"][0]["PrivateDnsName"],
-                                "InstanceId" => resentry["Instances"][0]["InstanceId"],
-                                "Tags" => tag.join(', '),
-                                "InstanceType" => resentry["Instances"][0]["InstanceType"]
-                                  }
-         count += 1
     end
     if pretty then
       return JSON.pretty_generate outputhash
